@@ -37,7 +37,7 @@ export default class ProductTable extends React.Component {
                 <th style={borderedStyle}>Image</th>
                 <th style={borderedStyle}>Edit</th>
                 <th style={borderedStyle}>Delete</th>
-                <th>&nbsp;</th>
+               
               </tr>
             </thead>
             <tbody>

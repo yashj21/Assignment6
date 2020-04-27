@@ -1,5 +1,9 @@
 //import React from 'react';
 import React from '../node_modules/react';
+import {
+  Button, FormGroup,
+  ControlLabel, Form,
+} from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 const RESET_VALUES = {
@@ -55,12 +59,13 @@ export default class ProductAdd extends React.Component {
       const paddingStyle = { margin: 10 };
       const paddingStyle2 = { margin: 80 };
       return (
-        <form id="test" name="productAdd" onSubmit={this.handleSubmit}>
-          <label htmlFor="productname" style={paddingStyle}>Product Name</label>
+        <Form  id="test" name="productAdd" onSubmit={this.handleSubmit}>
+          <FormGroup>
+          <ControlLabel  htmlFor="productname">Product Name</ControlLabel >
           &nbsp;
-          <label htmlFor="productcat" style={paddingStyle2}>Product Category</label>
-          <br />
-          <input type="text" name="productname" style={paddingStyle} />
+          <input type="text" name="productname" />
+          &nbsp;
+          <ControlLabel  htmlFor="productcat" >Product Category</ControlLabel >
           &nbsp;
           <select id="productcat" style={paddingStyle}>
           &nbsp;
@@ -70,19 +75,21 @@ export default class ProductAdd extends React.Component {
             <option value="Sweaters">Sweaters</option>
             <option value="Accessories">Accessories</option>
           </select>
-          <br />
-          <label htmlFor="price" style={paddingStyle}>Price Per Unit</label>
+          </FormGroup>
+          <FormGroup>
+          <ControlLabel  htmlFor="price" >Price Per Unit</ControlLabel >
           &nbsp;
-          <label htmlFor="url" style={paddingStyle2}>Image URL</label>
+          <input type="text" name="price" onChange={this.handleChange} value={RESET_VALUES.price} />
           &nbsp;
-          <br />
-          <input type="text" name="price" onChange={this.handleChange} value={RESET_VALUES.price} style={paddingStyle} />
           &nbsp;
+          <ControlLabel  htmlFor="url" >Image URL</ControlLabel >
+         
           <input type="text" name="url" style={paddingStyle} />
-          <br />
-          <br />
-          <button type="submit">AddProduct </button>
-        </form>
+          </FormGroup>
+          <FormGroup>
+          <Button bsStyle="primary"  type="submit">AddProduct </Button>
+          </FormGroup>
+        </Form >
       );
     }
   }
