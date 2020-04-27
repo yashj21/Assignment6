@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "react/prop-types": "off",
+        "prefer-destructuring": ["error", {"object": false, "array": false}],
+        "react/react-in-jsx-scope": "off",
+        "jsx-a11y/label-has-for": [ 2, {
+            "required": {
+                "every": []
+            }
+        }],
+        "jsx-a11y/label-has-associated-control":"off",
+        "react/prefer-stateless-function":"off",
+        "no-undef":"off",
+        "react/no-render-return-value" : "off",
+        "react/jsx-no-undef" : "off"
+    }
+}
