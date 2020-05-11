@@ -3,7 +3,11 @@ import { render } from 'react-dom/cjs/react-dom.development';
 import graphQLFetch from './graphQLFetch.js';
 import NumInput from './NumInput.jsx';
 import TextInput from './TextInput.jsx';
-import { Button } from 'react-bootstrap';
+import {
+  Button, FormGroup,
+  ControlLabel, Form,
+} from 'react-bootstrap';
+
 export default class ProductEdit extends React.Component {
     constructor() {
         super();
@@ -79,14 +83,14 @@ export default class ProductEdit extends React.Component {
         const paddingStyle = { margin: 10 };
         const paddingStyle2 = { margin: 80 };
     return (
-        <form id="test" name="productAdd" onSubmit={this.handleSubmit}>
-        <label htmlFor="productname" style={paddingStyle}>Product Name</label>
+        <Form id="test" name="productAdd" onSubmit={this.handleSubmit}>
+        <FormGroup>
+        <ControlLabel htmlFor="productname" >Product Name</ControlLabel>
         &nbsp;
-        <label htmlFor="productcat" style={paddingStyle2}>Product Category</label>
-        <br />
-        <input type="text" name="productname" style={paddingStyle} value={productname} onChange={this.handleChange} />
+        <input type="text" name="productname" value={productname} onChange={this.handleChange} />
         &nbsp;
-        <select name="productcat" value={productcat} style={paddingStyle} onChange={this.handleChange}>
+        <ControlLabel htmlFor="productcat">Product Category</ControlLabel>
+        <select name="productcat" value={productcat} onChange={this.handleChange}>
         &nbsp;
           <option value="Shirts">Shirts</option>
           <option value="Jeans">Jeans</option>
@@ -94,22 +98,23 @@ export default class ProductEdit extends React.Component {
           <option value="Sweaters">Sweaters</option>
           <option value="Accessories">Accessories</option>
         </select>
-        <br />
-        <label htmlFor="price" style={paddingStyle}>Price Per Unit</label>
+        </FormGroup>
+        <FormGroup>
+        <ControlLabel htmlFor="price" >Price Per Unit</ControlLabel>
         &nbsp;
-        <label htmlFor="url" style={paddingStyle2}>Image URL</label>
-        &nbsp;
-        <br />
         <NumInput name="productprice" onChange={this.handleChange} value={productprice} style={paddingStyle} />
         &nbsp;
-        <TextInput name="producturl" style={paddingStyle} value={producturl} onChange={this.handleChange} />
-        <br />
-        <br />
+        <ControlLabel htmlFor="url" >Image URL</ControlLabel>
+        &nbsp;
+        <TextInput name="producturl" value={producturl} onChange={this.handleChange} />
+        </FormGroup>
+        <FormGroup>
         <Button bsStyle="primary" type="button">
           Submit change
         </Button>
+        </FormGroup>
         {/* <button type="submit">Submit Changes </button> */}
-      </form>
+      </Form>
     );
     }
 }
